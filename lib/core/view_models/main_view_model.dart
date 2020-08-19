@@ -21,6 +21,7 @@ class MainViewModel extends BaseViewModel {
     listItems = [
       ListItem(name: "Frango"),
       ListItem(name: "Arroz"),
+      ListItem(name: "Peixe"),
       ListItem(name: "Feijão"),
       ListItem(name: "Macarrão"),
       ListItem(name: "Batata"),
