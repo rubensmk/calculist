@@ -9,7 +9,7 @@ class ListItem {
   ListItem({
     @required this.name,
     this.isChecked = false,
-    this.value,
+    this.value = 0,
     this.id,
   });
 }

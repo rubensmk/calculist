@@ -14,6 +14,7 @@ class MainViewModel extends BaseViewModel {
   // Variables
 
   List<ListItem> listItems = List();
+  double totalValue = 0.0;
 
   // Constructor
   MainViewModel() {
@@ -47,11 +48,19 @@ class MainViewModel extends BaseViewModel {
       value: value,
       id: index,
     );
+    calculateTotalValue();
     notifyListeners();
   }
 
   void checkItem(int index) {
     listItems[index].isChecked = !listItems[index].isChecked;
     notifyListeners();
+  }
+
+  void calculateTotalValue() {
+    totalValue = 0.0;
+    for (var i in listItems) {
+      totalValue += i.value;
+    }
   }
 }
