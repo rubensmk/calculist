@@ -15,11 +15,15 @@ class HomeScreen extends StatelessWidget {
             physics: NeverScrollableScrollPhysics(),
             itemCount: 10,
             itemBuilder: (BuildContext context, int index) => Dismissible(
-              // confirmDismiss: (direction) {
-              //   if (direction == DismissDirection.startToEnd) {
-              //     return true;
-              //   }
-              // },
+              confirmDismiss: (direction) async {
+                if (direction == DismissDirection.startToEnd) {
+                  return true;
+                } else {
+                  return false;
+                }
+              },
+              background:
+                  FlatButton(onPressed: () {}, child: Icon(Icons.check)),
               key: ValueKey("Item-$index"),
               child: ListTile(
                 leading: CircleAvatar(),
