@@ -1,12 +1,14 @@
+import 'package:calcu_list/ui/widgets/add_popup.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatelessWidget {
-  const HomeScreen();
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(
+        title: Text("Calcu List"),
+        centerTitle: true,
+      ),
       body: ListView(
         physics: BouncingScrollPhysics(),
         children: [
@@ -15,23 +17,35 @@ class HomeScreen extends StatelessWidget {
             physics: NeverScrollableScrollPhysics(),
             itemCount: 10,
             itemBuilder: (BuildContext context, int index) => Dismissible(
-              confirmDismiss: (direction) async {
-                if (direction == DismissDirection.startToEnd) {
-                  return true;
-                } else {
-                  return false;
-                }
-              },
-              background:
-                  FlatButton(onPressed: () {}, child: Icon(Icons.check)),
+              // confirmDismiss: (direction) async {
+              //   if (direction == DismissDirection.startToEnd) {
+              //     return true;
+              //   } else {
+              //     return false;
+              //   }
+              // },
+              background: Container(
+                width: double.infinity,
+                height: double.infinity,
+                color: Colors.black12,
+              ),
               key: ValueKey("Item-$index"),
               child: ListTile(
-                leading: CircleAvatar(),
+                leading: CircleAvatar(
+                  child: Text("$index"),
+                ),
                 title: Text(
                   "Title",
                   style: TextStyle(color: Colors.black),
                 ),
                 subtitle: Text("value"),
+                onTap: () => showDialog(
+                  context: context,
+                  builder: (context) => AddPopup(
+                    index: index,
+                    title: "Title $index",
+                  ),
+                ),
               ),
               direction: DismissDirection.startToEnd,
               onDismissed: (direction) {
