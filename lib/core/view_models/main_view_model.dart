@@ -14,12 +14,14 @@ class MainViewModel extends BaseViewModel {
   // Variables
 
   List<ListItem> listItems = List();
+  double totalValue = 0.0;
 
   // Constructor
   MainViewModel() {
     listItems = [
       ListItem(name: "Frango"),
       ListItem(name: "Arroz"),
+      ListItem(name: "Peixe"),
       ListItem(name: "Feijão"),
       ListItem(name: "Macarrão"),
       ListItem(name: "Batata"),
@@ -47,11 +49,19 @@ class MainViewModel extends BaseViewModel {
       value: value,
       id: index,
     );
+    calculateTotalValue();
     notifyListeners();
   }
 
   void checkItem(int index) {
     listItems[index].isChecked = !listItems[index].isChecked;
     notifyListeners();
+  }
+
+  void calculateTotalValue() {
+    totalValue = 0.0;
+    for (var i in listItems) {
+      totalValue += i.value;
+    }
   }
 }
