@@ -31,14 +31,13 @@ class HomeScreen extends StatelessWidget {
               ),
               key: ValueKey("Item-$index"),
               child: ListTile(
-                leading: CircleAvatar(
-                  child: Text("$index"),
-                ),
+                leading:
+                    Image(image: AssetImage("assets/images/non-completed.png")),
                 title: Text(
-                  "Title",
+                  "Item $index",
                   style: TextStyle(color: Colors.black),
                 ),
-                subtitle: Text("value"),
+                subtitle: Text(r"Valor R$"),
                 onTap: () => showDialog(
                   context: context,
                   builder: (context) => AddPopup(
