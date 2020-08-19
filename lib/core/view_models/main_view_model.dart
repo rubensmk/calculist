@@ -43,9 +43,9 @@ class MainViewModel extends BaseViewModel {
     notifyListeners();
   }
 
-  void editValue(String name, double value, int index) {
+  void editValue(double value, int index) {
     listItems[index] = ListItem(
-      name: name,
+      name: listItems[index].name,
       value: value,
       id: index,
     );
