@@ -10,7 +10,7 @@ class HomeScreen extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text("Calcu List"),
+        title: Text("CalcuList"),
         centerTitle: true,
       ),
       body: ListView(
@@ -67,13 +67,14 @@ class HomeScreen extends StatelessWidget {
       bottomNavigationBar: BottomNavigationBar(
         items: [
           BottomNavigationBarItem(
-              icon: Icon(Icons.ac_unit), title: Text("asd")),
+              icon: Icon(Icons.home),
+              title: Text("Home")),
           BottomNavigationBarItem(
-              icon: Icon(Icons.ac_unit), title: Text("asd")),
+              icon: Icon(Icons.add),
+              title: Text("Adicionar")),
           BottomNavigationBarItem(
-              icon: Icon(Icons.ac_unit), title: Text("asd")),
-          BottomNavigationBarItem(
-              icon: Icon(Icons.ac_unit), title: Text("asd")),
+              icon: Icon(Icons.settings),
+              title: Text("Configura")),
         ],
       ),
     );
